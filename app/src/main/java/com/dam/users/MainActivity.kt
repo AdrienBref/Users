@@ -40,9 +40,15 @@ class MainActivity : AppCompatActivity(), OnClickListener {
 
     override fun onClick(v: View?) {
         when(v?.id) {
-            binding.cleanText.id -> {}
-            binding.Login.id -> {
+            binding.cleanText.id -> {
 
+                binding.user.text = null;
+                binding.password.text = null;
+                binding.spinnerPerfil.setSelection(0)
+                binding.profileGroup.clearCheck()
+
+            }
+            binding.Login.id -> {
                 if(!binding.password.text.isEmpty()
                     && !binding.user.text.isEmpty()
                     && findViewById<RadioButton>(binding.profileGroup.checkedRadioButtonId).text.toString() != null) {

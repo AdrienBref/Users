@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:padding="10dp">
+    android:padding="10dp"
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/Title"
@@ -23,6 +23,8 @@
         android:id="@+id/CardImageUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,17 +34,17 @@
             android:id="@+id/imageUserMain"
             android:layout_width="200dp"
             android:layout_height="200dp"
-/>
+            android:src="@drawable/signuplogo" />
 
     </androidx.cardview.widget.CardView>
 
     <EditText
-        android:drawableLeft="@drawable/usuario"
-        android:drawablePadding="10dp"
         android:id="@+id/user"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/usuario"
+        android:drawablePadding="10dp"
         android:hint="Introduzca Usuario"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,17 +52,73 @@
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <EditText
-        android:drawableLeft="@drawable/lockpass"
-        android:drawablePadding="10dp"
         android:id="@+id/password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/lockpass"
+        android:drawablePadding="10dp"
         android:hint="Introduzca Contraseña"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/user"
         app:layout_constraintStart_toStartOf="@+id/user"
         app:layout_constraintTop_toBottomOf="@+id/user" />
+
+
+    <Spinner
+        android:entries="@array/perfiles"
+        android:id="@+id/spinnerPerfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+
+    <RadioGroup
+        android:id="@+id/profileGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerPerfil"
+        app:layout_constraintStart_toStartOf="@+id/spinnerPerfil"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPerfil">
+
+        <RadioButton
+            android:id="@+id/privateProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="Incognito" />
+
+        <RadioButton
+            android:id="@+id/normalProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="Normal" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/cleanText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Limpiar"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileGroup" />
+
+    <Button
+        android:id="@+id/Login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/cleanText" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -68,6 +126,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

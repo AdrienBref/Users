@@ -54,13 +54,16 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                 if(!binding.password.text.isEmpty()
                     && !binding.user.text.isEmpty()
                     && findViewById<RadioButton>(binding.profileGroup.checkedRadioButtonId).text.toString() != null) {
-
+                    //TODO: evaluate the email String. It should contains "@" char and ".com" termination. May should do an function in utils archive?
                     val correo = binding.user.text.toString()
                     val password = binding.password.text.toString()
                     val perfil = binding.spinnerPerfil.selectedItem.toString()
                     val visibilidad = findViewById<RadioButton>(binding.profileGroup.checkedRadioButtonId).text.toString()
 
-                    val intent = Intent(this@MainActivity, SecondActivity::class.java)
+                    val intent = Intent(this@MainActivity, SecondActivity::class.java).apply {
+                        putExtra("EXTRA_MAIL", correo)
+                        putExtra("EXTRA_PASSWORD", password)
+                    }
                     startActivity(intent)
 
                 } else {

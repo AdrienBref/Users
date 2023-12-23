@@ -1,14 +1,16 @@
 package com.dam.users
 
+import android.content.Intent
 import android.content.res.Configuration
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.Button
 import android.widget.RadioButton
+import androidx.appcompat.app.AppCompatActivity
 import com.dam.users.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
+
 
 class MainActivity : AppCompatActivity(), OnClickListener {
     private lateinit var binding: ActivityMainBinding
@@ -57,6 +59,9 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     val password = binding.password.text.toString()
                     val perfil = binding.spinnerPerfil.selectedItem.toString()
                     val visibilidad = findViewById<RadioButton>(binding.profileGroup.checkedRadioButtonId).text.toString()
+
+                    val intent = Intent(this@MainActivity, SecondActivity::class.java)
+                    startActivity(intent)
 
                 } else {
                     Snackbar.make(

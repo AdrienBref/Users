@@ -10,6 +10,7 @@ class SecondActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySecondBinding
     private lateinit var configuration: Configuration
+    //TODO: Recuerperar el usuario como objeto
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -20,5 +21,10 @@ class SecondActivity : AppCompatActivity() {
         val correo = intent.getStringExtra("EXTRA_MAIL");
 
         binding.emailHeadline.text = correo
+
+        binding.closeSession.setOnClickListener {
+            finish()
+        }
+
     }
 }

@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import com.dam.users.databinding.ActivityMainBinding
-import com.dam.users.models.user
+import com.dam.users.models.User
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
                     val intent = Intent(this@MainActivity, SecondActivity::class.java).apply {
                         putExtra("EXTRA_MAIL", correo)
                         putExtra("EXTRA_PASSWORD", password)
-                        putExtra("user", user(correo, password, perfil, visibilidad))
+                        putExtra("user", User(correo, password, perfil, visibilidad))
                     }
                     startActivity(intent)
 

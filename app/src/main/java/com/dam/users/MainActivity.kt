@@ -13,7 +13,7 @@ import com.dam.users.models.User
 import com.google.android.material.snackbar.Snackbar
 
 
-class MainActivity : AppCompatActivity(), OnClickListener {
+    class MainActivity : AppCompatActivity(), OnClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var configuration: Configuration
     private lateinit var button: Button

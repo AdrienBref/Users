@@ -33,7 +33,7 @@ class SecondActivity : AppCompatActivity() {
         binding.emailHeadline.text = correo
         binding.emailHeadline.text = user.perfil
         binding.emailHeadline.text = user.visibilidad
-
+        binding.recyclerUsuarios
         binding.closeSession.setOnClickListener {
             finish()
         }

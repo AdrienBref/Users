@@ -1,5 +1,7 @@
 package com.dam.users.adapter
 
+import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -7,8 +9,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.dam.users.R
+import com.dam.users.models.User
 
-class UsersAdapter : RecyclerView.Adapter<UsersAdapter.MyHolder>(){
+class UsersAdapter(val lista : ArrayList<User>,
+                   var context : Context
+) : RecyclerView.Adapter<UsersAdapter.MyHolder>(){
 
     class MyHolder(item: View) : ViewHolder(item) {
 
@@ -21,11 +26,13 @@ class UsersAdapter : RecyclerView.Adapter<UsersAdapter.MyHolder>(){
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyHolder {
-        TODO("Not yet implemented")
+        val vista: View = LayoutInflater.from(context)
+            .inflate(R.layout.item_recycler,parent, false)
+        return  MyHolder(vista)
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return lista.size
     }
 
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
